@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Detection with Flask and AI</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Face Detection with Flask and AI</h1>
+        <form method="post" action="/upload" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Select an image:</label>
+                <input type="file" name="file" id="file" class="form-control-file">
+            </div>
+            <button type="submit" class="btn btn-primary">Detect Faces</button>
+        </form>
+        {% if error %}
+            <p class="text-danger mt-3">{{ error }}</p>
+        {% endif %}
+        {% if result %}
+            <h2 class="mt-4">Result:</h2>
+            <img src="{{ result }}" class="img-fluid" alt="Detected Faces">
+        {% endif %}
+    </div>
+</body>
+</html>
